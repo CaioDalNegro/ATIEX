@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.col-1 { width: 8.33%; }
+.col-10 { width: 83.33%; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #007bff, #6f42c1, #d63384);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.pergunta p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Estilo das opções */
+.opcoes {
+    display: flex;
+    flex-direction: column;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.opcoes button {
+    display: block;
+    padding: 15px;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: white;
+}
+
+.opcoes button:hover {
+    background-color: #0056b3;
+}
+
+.opcoes button:focus {
+    outline: none;
+    border: 2px solid #0056b3;
+}
+
+/* Barra de progresso */
+.containerProgresso {
+    height: 8px;
+    background-color: #e0e0e0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progressoBar {
+    width: 0%;
+    height: 100%;
+    background-color: #007bff;
+    transition: width 0.4s ease;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .pergunta p {
+        font-size: 1.2rem;
+    }
+
+    .opcoes button {
+        font-size: 1rem;
+    }
+}
