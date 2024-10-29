@@ -121,33 +121,28 @@ a {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
+        width: 90%;
+        max-width: none;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 24px;
     }
 
     .pergunta p {
-        font-size: 1.2rem;
+        font-size: 18px;
     }
 
     .botao {
-<<<<<<< HEAD:Site/CSS/style.css
         font-size: 16px;
         padding: 12px;
         max-width: 380px;
-=======
-        font-size: 4vw; /* Fonte do botão adaptável à largura da tela */
-        padding: 2.5vw; /* Espaçamento interno adaptável */
-        width: 80vw; /* Largura do botão em função da largura da tela */
-        max-width: 100%; /* Evita que o botão ultrapasse a tela */
->>>>>>> 0b20e1b8d3cd9cc17949731eab61887501732f38:assets/CSS/style.css
     }
 
     .caixa {
-        width: 10vw;
-        height: 10vw;
-        font-size: 3vw;
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
 }
 
