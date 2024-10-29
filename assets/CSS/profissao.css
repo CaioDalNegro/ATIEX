@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.botaoResposta{
+    display: block;
+    width: 200px;
+    margin-left: 38px;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #8B0000;
+    color: rgb(255, 255, 255);
+}
+
+.botaoResposta:hover {
+    background-color: #b00000;
+}
