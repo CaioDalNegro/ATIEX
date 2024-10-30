@@ -1,0 +1,33 @@
+<!-- resposta_incorreta.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta Incorreta</title>
+</head>
+<body>
+    <h1>Resposta Incorreta</h1>
+    <p id="mensagem"></p>
+    <a href="index.html">Voltar para o início</a>
+
+    <script>
+        // Função para obter parâmetros da URL
+        function getUrlParams() {
+            const params = {};
+            const search = window.location.search.substring(1);
+            const pairs = search.split("&");
+            pairs.forEach(pair => {
+                const [key, value] = pair.split("=");
+                params[decodeURIComponent(key)] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        // Usando os parâmetros para mostrar a resposta correta e a explicação
+        const params = getUrlParams();
+        const mensagem = `A alternativa correta era ${params.correta}. ${params.explicacao}`;
+        document.getElementById('mensagem').textContent = mensagem;
+    </script>
+</body>
+</html>
