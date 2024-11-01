@@ -47,12 +47,14 @@ function exibirPergunta() {
 function verificarResposta(correto) {
     if (correto) {
         pontuacao++;
-        alert("Resposta correta!");//tirar alert
+        window.location.href = "/resposta_correta.html"; // Redireciona para a página de resposta correta
     } else {
-        alert("Resposta incorreta.");//tirartirar alert
+        // Redireciona para a página resposta_incorreta.html ao errar a resposta
+        window.location.href = '/resposta_incorreta.html';
     }
     perguntaAtual++;
     exibirPergunta();
 }
+
 
 carregarPerguntas();
