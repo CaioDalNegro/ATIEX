@@ -1,27 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/inicio.css"> <!-- Corrigido o caminho -->
+    <link rel="stylesheet" href="../css/inicio.css"> <!-- Corrigido o caminho -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <title>Programandos</title>
 </head>
+
 <body>
     <div class="container">
         <h1 id="categoria">Categoria</h1>
-
         <div class="containerProgresso">
             <div class="progressoBar"></div>
         </div>
-
         <div class="pergunta">
             <p id="pergunta">Pergunta</p>
         </div>
-
         <div class="opcoes" id="opcoes">
             <!-- Botões das opções serão adicionados dinamicamente aqui -->
         </div>
     </div>
-    <script src="/js/script.js"></script> <!-- Certifique-se de que este caminho também está correto -->
+
+    <!-- Modal para a resposta correta -->
+    <div id="modalCorreta" class="modal">
+        <div class="modal-content">
+            <h2>Parabéns! Você acertou!</h2>
+            <p>Sua resposta está correta. Continue assim!</p>
+            <button id="btnOk">OK</button>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div id="modalErro" class="modal">
+        <div class="modal-content">
+            <span class="close" id="btnClose">&times;</span>
+            <h2>Você ERROU</h2>
+            <p>
+                <!--exibe as msg-->
+            </p>
+            <div class="modal-buttons">
+                <button id="btnProxima">Ir para a próxima</button>
+                <button id="btnRefazer">Refazer</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal para exibir a dica -->
+<div id="dicaModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModal()">&times;</span>
+        <h2>A Resposta Correta é:</h2>
+        <p id="respostaDica"></p>
+        <p id="explicacaoDica"></p>
+    </div>
+</div>
+
+<!-- Modal Dica 3 -->
+<div id="modalDica3" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalDica3">&times;</span>
+      <p>Você pode pedir a ajuda de alguém para responder a esta pergunta.</p>
+    </div>
+  </div>
+  
+  <div id="modalPontuacao" class="modal">
+    <div class="modal-content">
+        <span id="btnClosePontuacao" class="close">&times;</span>
+        <h2>Pontuação Final</h2>
+        <p class="pontuacao"></p>
+        <button id="btnReiniciarQuiz">Reiniciar Quiz</button>
+    </div>
+</div>
+
+
+<!-- Botões de dicas -->
+<div class="dicas-container">
+    <button id="btnDica1" class="dica-botao" onclick="usarDica1()">
+        <span class="material-symbols-outlined">check_circle</span>
+    </button>
+
+    <button id="btnDica2" class="dica-botao" onclick="usarDica2()">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <button id="btnDica3" class="dica-botao" onclick="usarDica3()">
+        <span class="material-symbols-outlined">partner_exchange</span>
+    </button>
+</div>
+ 
+    <script src="../js/script.js"></script>
 </body>
+
 </html>
