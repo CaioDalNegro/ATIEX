@@ -134,7 +134,18 @@ let perguntas = [
     }
 ];
 
-// Função para carregar a pergunta no HTML
+// Função para concluir a categoria
+function concluirCategoria() {
+    const categoriaAtual = perguntas[perguntaAtual]?.categoria;
+    const proximaCategoria = perguntas[perguntaAtual + 1]?.categoria;
+
+    if (categoriaAtual !== proximaCategoria) {
+        // Aqui você pode exibir alguma mensagem ou fazer algo quando a categoria for concluída
+        alert(`Categoria "${categoriaAtual}" concluída!`);
+    }
+}
+
+// Atualize a função carregarPergunta para chamar concluirCategoria
 function carregarPergunta() {
     console.log(`Pontuação atual: ${pontuacao}`); // Exibe a pontuação no console
     const perguntaObj = perguntas[perguntaAtual]; // Obtém o objeto da pergunta atual
@@ -152,8 +163,8 @@ function carregarPergunta() {
         opcoesContainer.appendChild(button);
     });
 
-        // Verificar se a categoria foi concluída
-        concluirCategoria();
+    // Chama a função concluirCategoria
+    concluirCategoria();
 }
 
 // Função para abrir o modal de resposta correta
@@ -186,9 +197,17 @@ function mostrarPontuacaoFinal() {
 }
 
 
-// Função para carregar a próxima pergunta
 function proximaPergunta() {
     perguntaAtual++; // Avança para a próxima pergunta
+
+    // Verificar se a categoria foi concluída
+    const categoriaAtual = perguntas[perguntaAtual]?.categoria;
+
+    if (categoriaAtual !== perguntas[perguntaAtual - 1]?.categoria) {
+        // Se a categoria atual for diferente da anterior, significa que a categoria foi concluída
+        mostrarExplicacaoCategoria(categoriaAtual); // Exibe a explicação do tópico
+    }
+
     if (perguntaAtual < perguntas.length) {
         carregarPergunta(); // Carrega a próxima pergunta se houver
     } else {
@@ -249,27 +268,80 @@ function fecharModal() {
     document.getElementById("dicaModal").style.display = 'none'; // Esconde o modal
 }
 
-function usarDica2() {
-    const opcoes = perguntas[perguntaAtual].opcoes.filter(opcao => !opcao.correto); // Filtra opções erradas
-    const indicesAleatorios = new Set();
+// Variável para controlar o uso da dica 2
+let dica2Usada = false;
 
-    // Seleciona dois índices únicos aleatórios
-    while (indicesAleatorios.size < 2) {
-        indicesAleatorios.add(Math.floor(Math.random() * opcoes.length));
+// Função para usar a dica 2
+function usarDica2() {
+    if (!dica2Usada) { // Verifica se a dica 2 já foi usada
+        const perguntaObj = perguntas[perguntaAtual]; // Obtém o objeto da pergunta atual
+
+        // Filtra as alternativas incorretas
+        const alternativasIncorretas = perguntaObj.opcoes.filter(opcao => !opcao.correto);
+
+        // Seleciona duas alternativas incorretas aleatoriamente
+        const alternativasParaDesabilitar = [];
+        while (alternativasParaDesabilitar.length < 2) {
+            const indexAleatorio = Math.floor(Math.random() * alternativasIncorretas.length);
+            const opcaoSelecionada = alternativasIncorretas[indexAleatorio];
+
+            if (!alternativasParaDesabilitar.includes(opcaoSelecionada)) {
+                alternativasParaDesabilitar.push(opcaoSelecionada);
+            }
+        }
+
+        // Desabilita as alternativas selecionadas e altera sua cor
+        const opcoesContainer = document.getElementById("opcoes");
+        Array.from(opcoesContainer.children).forEach(button => {
+            const opcaoTexto = button.innerText.slice(3); // Texto da opção sem a letra e ponto
+
+            // Desabilita os botões das alternativas selecionadas
+            alternativasParaDesabilitar.forEach(alternativa => {
+                if (button.innerText.includes(alternativa.texto)) {
+                    button.disabled = true; // Desabilita o botão
+                    button.style.backgroundColor = 'gray'; // Muda a cor para cinza
+                }
+            });
+        });
+
+        dica2Usada = true; // Marca a dica como usada
+    }
+}
+
+// Exemplo de como associar o botão de dica 2 à função
+document.getElementById("btnDica2").onclick = usarDica2;
+
+
+function btnDica2() {
+    // Obtenha todas as alternativas
+    const alternativas = document.querySelectorAll('.alternativa');
+    
+    // Filtre as alternativas incorretas
+    const incorretas = Array.from(alternativas).filter(alternativa => !alternativa.classList.contains('correta'));
+    
+    // Se houver menos de duas incorretas, retorne (proteção contra erro)
+    if (incorretas.length < 2) return;
+    
+    // Escolha duas alternativas incorretas aleatoriamente
+    const alternativasParaEliminar = [];
+    while (alternativasParaEliminar.length < 2) {
+        const indexAleatorio = Math.floor(Math.random() * incorretas.length);
+        const alternativaSelecionada = incorretas[indexAleatorio];
+        
+        // Evite duplicados
+        if (!alternativasParaEliminar.includes(alternativaSelecionada)) {
+            alternativasParaEliminar.push(alternativaSelecionada);
+        }
     }
 
-    // Desativa as duas opções erradas
-    indicesAleatorios.forEach(indice => {
-        // Seletor dinâmico para os botões, considerando a ordem das opções
-        const botao = document.querySelector(`#opcoes button:nth-child(${opcoes.indexOf(opcoes[indice]) + 1})`);
-        if (botao) {
-            botao.classList.add("desativada");
-        }
+    // Desabilite e estilize as alternativas escolhidas
+    alternativasParaEliminar.forEach(alternativa => {
+        alternativa.style.color = 'gray';
+        alternativa.style.pointerEvents = 'none';
     });
-    
-    // Opcional: desativa o próprio botão de dica após o uso
-    const btnDica2 = document.getElementById('btnDica2');
-    btnDica2.disabled = true; // Desativa o botão
+
+    // Opcional: Desabilitar o botão dica para não ser usado novamente
+    document.getElementById('btnDica2').disabled = true;
 }
 
 // Função para usar a dica 3
@@ -305,37 +377,31 @@ document.getElementById('btnReiniciarQuiz').onclick = function() {
     carregarPergunta(); // Carrega a primeira pergunta
 };
 
-const informacoesProfissao = {
-    "Automação Industrial": "O profissional de Automação Industrial trabalha com o desenvolvimento e a manutenção de sistemas automatizados em processos industriais.",
-    "Engenharia de Software": "O engenheiro de software é responsável pelo desenvolvimento, testes e manutenção de sistemas de software, utilizando metodologias ágeis e boas práticas de desenvolvimento.",
-    "Inteligência Artificial": "Profissionais de IA desenvolvem algoritmos e modelos para que máquinas possam aprender e realizar tarefas de forma autônoma, como reconhecimento de padrões e tomada de decisões."
+const modalCategoria = document.getElementById('modalCategoria');
+const btnOkCategoria = document.getElementById('btnOkCategoria');
+
+// Função para exibir a explicação do tópico no modal
+function mostrarExplicacaoCategoria(categoria) {
+    let explicacao = '';
+
+    if (categoria === 'Automação Industrial') {
+        explicacao = 'Automação Industrial envolve o uso de tecnologias para automatizar processos industriais, melhorando a eficiência e segurança. Exemplos incluem CLPs, inversores de frequência e atuadores.';
+    } else if (categoria === 'Engenharia de Software') {
+        explicacao = 'Engenharia de Software é a aplicação de princípios da engenharia para o desenvolvimento de software. Envolve práticas como análise de requisitos, design, desenvolvimento e manutenção de sistemas.';
+    } else if (categoria === 'Inteligência Artificial') {
+        explicacao = 'Inteligência Artificial envolve a criação de sistemas capazes de realizar tarefas que normalmente requerem inteligência humana, como reconhecimento de padrões e aprendizado de máquina.';
+    }
+
+    // Exibe a explicação no modal
+    document.getElementById('explicacaoCategoria').innerText = explicacao;
+    modalCategoria.style.display = 'flex'; // Exibe o modal explicativo
+}
+
+// Evento para fechar o modal explicativo
+btnOkCategoria.onclick = function () {
+    modalCategoria.style.display = 'none'; // Fecha o modal
+    proximaPergunta(); // Avança para a próxima pergunta ou reinicia
 };
 
-// Função para verificar se a categoria foi concluída
-function concluirCategoria() {
-    const categoriaAtual = perguntas[perguntaAtual].categoria;
-    const perguntasCategoria = perguntas.filter(p => p.categoria === categoriaAtual);
-    
-    if (perguntaAtual >= perguntasCategoria.length) {
-        mostrarModalProfissao(categoriaAtual);
-    }
-}
-
-// Função para exibir o modal com a descrição da profissão
-function mostrarModalProfissao(categoria) {
-    const descricao = informacoesProfissao[categoria];
-    const modalProfissao = document.getElementById('modalProfissao');
-    const descricaoProfissao = document.getElementById('descricaoProfissao');
-    descricaoProfissao.innerText = descricao;
-
-    // Exibe o modal
-    modalProfissao.style.display = 'flex';
-}
-
-// Função para fechar o modal
-const btnFecharProfissao = document.getElementById('btnFecharProfissao');
-btnFecharProfissao.addEventListener('click', () => {
-    document.getElementById('modalProfissao').style.display = 'none';
-});
 
 

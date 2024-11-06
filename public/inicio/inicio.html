@@ -36,7 +36,7 @@
     <div id="modalErro" class="modal">
         <div class="modal-content">
             <span class="close" id="btnClose">&times;</span>
-            <h2>Você ERROU</h2>
+            <h2>Você ERROU! Aqui está a explicação do erro.</h2>
             <p>
                 <!-- exibe as msg -->
             </p>
@@ -75,26 +75,29 @@
         </div>
     </div>
 
-    <!-- Modal Profissão -->
-    <div id="modalProfissao" class="modal">
+    <div id="modalTopico" class="modal">
         <div class="modal-content">
-            <h2>Informações sobre a Profissão</h2>
-            <p id="descricaoProfissao"></p>
-            <button id="btnFecharProfissao">Fechar</button>
+            <p id="explicacaoTopico"></p>
+            <button id="btnOkTopico">OK</button>
         </div>
     </div>
+    
 
-    <div class="dicas-container">
-        <button id="btnDica1" class="dica-botao" onclick="usarDica1()">
-            <span class="material-symbols-outlined">check_circle</span>
-        </button>
-        <button id="btnDica2" class="dica-botao" onclick="usarDica2()">
-            <span class="material-symbols-outlined">close</span>
-        </button>
-        <button id="btnDica3" class="dica-botao" onclick="usarDica3()">
-            <span class="material-symbols-outlined">partner_exchange</span>
-        </button>
-    </div>
+
+
+
+<!-- Botões de dicas -->
+<div class="dicas-container">
+    <button id="btnDica1" class="dica-botao" onclick="usarDica1()">
+        <span class="material-symbols-outlined">check_circle</span>
+    </button>
+    <button id="btnDica2" class="dica-botao" onclick="usarDica2()">
+        <span class="material-symbols-outlined">close</span>
+    </button>
+    <button id="btnDica3" class="dica-botao" onclick="usarDica3()">
+        <span class="material-symbols-outlined">partner_exchange</span>
+    </button>
+</div>
  
     <script src="../js/script.js"></script>
 </body>

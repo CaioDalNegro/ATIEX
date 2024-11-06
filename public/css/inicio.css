@@ -144,6 +144,17 @@ h1 {
     padding: 15px; /* Aumenta o preenchimento interno dos botões */
 }
 
+#modalTopico {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
 
 /* Animação de fade-in */
 @keyframes fadeIn {
@@ -229,7 +240,8 @@ h1 {
 .modalDica3 {
     margin: auto; /* Garante que o modal esteja centralizado */
     max-width: 500px; /* Define uma largura máxima para o modal */
-  }  
+  }
+
 /* Define o estilo básico dos botões de opções */
 .opcoes button {
     background-color: #8B0000; /* Cor de fundo azul */
