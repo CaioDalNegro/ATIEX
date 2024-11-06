@@ -147,11 +147,13 @@ function carregarPergunta() {
     // Cria botões para cada opção
     perguntaObj.opcoes.forEach((opcao) => {
         const button = document.createElement("button");
-        button.innerText = `${opcao.letra}: ${opcao.texto}`;
-        button.classList.add("opcao");
-        button.onclick = () => verificarResposta(opcao); // Verifica resposta ao clicar
+        button.innerText = `${opcao.letra}. ${opcao.texto}`;
+        button.onclick = () => verificarResposta(opcao);
         opcoesContainer.appendChild(button);
     });
+
+        // Verificar se a categoria foi concluída
+        concluirCategoria();
 }
 
 // Função para abrir o modal de resposta correta
@@ -190,7 +192,7 @@ function proximaPergunta() {
     if (perguntaAtual < perguntas.length) {
         carregarPergunta(); // Carrega a próxima pergunta se houver
     } else {
-        alert("Parabéns! Você completou todas as perguntas!"); // Mensagem de finalização
+        mostrarPontuacaoFinal(); // Mostra a pontuação final ao completar o quiz
         perguntaAtual = 0; // Reinicia para a primeira pergunta, caso queira repetir
     }
 }
@@ -247,7 +249,6 @@ function fecharModal() {
     document.getElementById("dicaModal").style.display = 'none'; // Esconde o modal
 }
 
-// Função para usar a dica 2
 function usarDica2() {
     const opcoes = perguntas[perguntaAtual].opcoes.filter(opcao => !opcao.correto); // Filtra opções erradas
     const indicesAleatorios = new Set();
@@ -259,9 +260,10 @@ function usarDica2() {
 
     // Desativa as duas opções erradas
     indicesAleatorios.forEach(indice => {
-        const botao = document.querySelector(`#opcoes button:nth-child(${opcoes[indice].letra.charCodeAt(0) - 65 + 1})`);
+        // Seletor dinâmico para os botões, considerando a ordem das opções
+        const botao = document.querySelector(`#opcoes button:nth-child(${opcoes.indexOf(opcoes[indice]) + 1})`);
         if (botao) {
-            botao.classList.add("desativada"); // Adiciona classe para desativar o botão
+            botao.classList.add("desativada");
         }
     });
     
@@ -302,4 +304,38 @@ document.getElementById('btnReiniciarQuiz').onclick = function() {
     modalPontuacao.style.display = 'none'; // Fecha o modal de pontuação
     carregarPergunta(); // Carrega a primeira pergunta
 };
+
+const informacoesProfissao = {
+    "Automação Industrial": "O profissional de Automação Industrial trabalha com o desenvolvimento e a manutenção de sistemas automatizados em processos industriais.",
+    "Engenharia de Software": "O engenheiro de software é responsável pelo desenvolvimento, testes e manutenção de sistemas de software, utilizando metodologias ágeis e boas práticas de desenvolvimento.",
+    "Inteligência Artificial": "Profissionais de IA desenvolvem algoritmos e modelos para que máquinas possam aprender e realizar tarefas de forma autônoma, como reconhecimento de padrões e tomada de decisões."
+};
+
+// Função para verificar se a categoria foi concluída
+function concluirCategoria() {
+    const categoriaAtual = perguntas[perguntaAtual].categoria;
+    const perguntasCategoria = perguntas.filter(p => p.categoria === categoriaAtual);
+    
+    if (perguntaAtual >= perguntasCategoria.length) {
+        mostrarModalProfissao(categoriaAtual);
+    }
+}
+
+// Função para exibir o modal com a descrição da profissão
+function mostrarModalProfissao(categoria) {
+    const descricao = informacoesProfissao[categoria];
+    const modalProfissao = document.getElementById('modalProfissao');
+    const descricaoProfissao = document.getElementById('descricaoProfissao');
+    descricaoProfissao.innerText = descricao;
+
+    // Exibe o modal
+    modalProfissao.style.display = 'flex';
+}
+
+// Função para fechar o modal
+const btnFecharProfissao = document.getElementById('btnFecharProfissao');
+btnFecharProfissao.addEventListener('click', () => {
+    document.getElementById('modalProfissao').style.display = 'none';
+});
+
 

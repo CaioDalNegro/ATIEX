@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/inicio.css"> <!-- Corrigido o caminho -->
+    <link rel="stylesheet" href="../css/inicio.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/index.bundle.min.js"></script>
     <title>Programandos</title>
 </head>
 
@@ -38,7 +38,7 @@
             <span class="close" id="btnClose">&times;</span>
             <h2>Você ERROU</h2>
             <p>
-                <!--exibe as msg-->
+                <!-- exibe as msg -->
             </p>
             <div class="modal-buttons">
                 <button id="btnProxima">Ir para a próxima</button>
@@ -47,50 +47,55 @@
         </div>
     </div>
 
-<!-- Modal para exibir a dica -->
-<div id="dicaModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="fecharModal()">&times;</span>
-        <h2>A Resposta Correta é:</h2>
-        <p id="respostaDica"></p>
-        <p id="explicacaoDica"></p>
+    <!-- Modal para exibir a dica -->
+    <div id="dicaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>A Resposta Correta é:</h2>
+            <p id="respostaDica"></p>
+            <p id="explicacaoDica"></p>
+        </div>
     </div>
-</div>
 
-<!-- Modal Dica 3 -->
-<div id="modalDica3" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModalDica3">&times;</span>
-      <p>Você pode pedir a ajuda de alguém para responder a esta pergunta.</p>
+    <!-- Modal Dica 3 -->
+    <div id="modalDica3" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalDica3">&times;</span>
+            <p>Você pode pedir a ajuda de alguém para responder a esta pergunta.</p>
+        </div>
     </div>
-  </div>
-  
-  <div id="modalPontuacao" class="modal">
-    <div class="modal-content">
-        <span id="btnClosePontuacao" class="close">&times;</span>
-        <h2>Pontuação Final</h2>
-        <p class="pontuacao"></p>
-        <button id="btnReiniciarQuiz">Reiniciar Quiz</button>
+
+    <!-- Modal Pontuação -->
+    <div id="modalPontuacao" class="modal">
+        <div class="modal-content">
+            <span id="btnClosePontuacao" class="close">&times;</span>
+            <h2>Pontuação Final</h2>
+            <p class="pontuacao"></p>
+            <button id="btnReiniciarQuiz">Reiniciar Quiz</button>
+        </div>
     </div>
-</div>
 
+    <!-- Modal Profissão -->
+    <div id="modalProfissao" class="modal">
+        <div class="modal-content">
+            <h2>Informações sobre a Profissão</h2>
+            <p id="descricaoProfissao"></p>
+            <button id="btnFecharProfissao">Fechar</button>
+        </div>
+    </div>
 
-<!-- Botões de dicas -->
-<div class="dicas-container">
-    <button id="btnDica1" class="dica-botao" onclick="usarDica1()">
-        <span class="material-symbols-outlined">check_circle</span>
-    </button>
-
-    <button id="btnDica2" class="dica-botao" onclick="usarDica2()">
-        <span class="material-symbols-outlined">close</span>
-    </button>
-
-    <button id="btnDica3" class="dica-botao" onclick="usarDica3()">
-        <span class="material-symbols-outlined">partner_exchange</span>
-    </button>
-</div>
+    <div class="dicas-container">
+        <button id="btnDica1" class="dica-botao" onclick="usarDica1()">
+            <span class="material-symbols-outlined">check_circle</span>
+        </button>
+        <button id="btnDica2" class="dica-botao" onclick="usarDica2()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <button id="btnDica3" class="dica-botao" onclick="usarDica3()">
+            <span class="material-symbols-outlined">partner_exchange</span>
+        </button>
+    </div>
  
     <script src="../js/script.js"></script>
 </body>
-
 </html>
