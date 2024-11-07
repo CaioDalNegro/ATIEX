@@ -2,11 +2,11 @@
   {
       "id": 1,
       "categoria": "Automação Industrial",
-      "pergunta": "Qual dispositivo é frequentemente usado para controlar processos automatizados?",
+      "pergunta": "Qual dispositivo é frequentemente utilizado para controlar processos automatizados?",
       "opcoes": [
           { "letra": "A", "texto": "Monitor", "correto": false },
-          { "letra": "B", "texto": "CLP", "correto": true },
-          { "letra": "C", "texto": "Impressora", "correto": false },
+          { "letra": "B", "texto": "Impressora", "correto": false },
+          { "letra": "C", "texto": "CLP", "correto": true },
           { "letra": "D", "texto": "Scanner", "correto": false }
       ]
   },

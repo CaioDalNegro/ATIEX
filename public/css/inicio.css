@@ -43,13 +43,13 @@ body {
 
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
     color: #000;
 }
 
 .pergunta p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 30px;
 }
 
@@ -136,7 +136,7 @@ h1 {
 }
 
 .modal-content p {
-    font-size: 1.2rem; /* Aumenta o tamanho do texto */
+    font-size: 1.6rem; /* Aumenta o tamanho do texto */
 }
 
 .modal-buttons button {
@@ -181,13 +181,13 @@ h1 {
 
 /* Para aumentar o tamanho usando a classe */
 .close {
-    font-size: 2rem; /* Aumenta o tamanho do "×" */
+    font-size: 3rem; /* Aumenta o tamanho do "×" */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
 }
 
 /* Para aumentar o tamanho usando o id */
 #btnClose {
-    font-size: 2rem; /* Aumenta o tamanho do "×" */
+    font-size: 3rem; /* Aumenta o tamanho do "×" */
     cursor: pointer; /* Muda o cursor para indicar que é clicável */
 }
 
@@ -296,9 +296,9 @@ a {
 
 /* Estilo dos botões de dicas */
 .dica-botao {
-    width: 50px;
-    height: 50px;
-    background-color: #8B0000;
+    width: 65px;
+    height: 65px;
+    background-color: #b60000;
     color: white;
     border: none;
     border-radius: 50%;

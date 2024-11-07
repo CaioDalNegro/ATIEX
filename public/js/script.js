@@ -14,8 +14,8 @@ let perguntaAtual = 0; // Índice da pergunta atual
 let perguntas = [
     {
         "id": 1,
-        "categoria": "Automação Industrial",
-        "pergunta": "Qual dispositivo é frequentemente usado para controlar processos automatizados?",
+        "categoria": "1- Automação Industrial",
+        "pergunta": "Qual dispositivo é frequentemente utilizado para controlar processos automatizados?",
         "opcoes": [
             { "letra": "A", "texto": "Monitor", "correto": false },
             { "letra": "B", "texto": "Impressora", "correto": false },
@@ -26,7 +26,7 @@ let perguntas = [
     },
     {
         "id": 2,
-        "categoria": "Automação Industrial",
+        "categoria": "2- Automação Industrial",
         "pergunta": "O que faz um inversor de frequência em sistemas industriais?",
         "opcoes": [
             { "letra": "A", "texto": "Regula a velocidade de motores elétricos", "correto": true },
@@ -38,7 +38,7 @@ let perguntas = [
     },
     {
         "id": 3,
-        "categoria": "Engenharia de Software",
+        "categoria": "3- Engenharia de Software",
         "pergunta": "Qual é a primeira fase do ciclo de vida de desenvolvimento de software?",
         "opcoes": [
             { "letra": "A", "texto": "Manutenção", "correto": false },
@@ -50,7 +50,7 @@ let perguntas = [
     },
     {
         "id": 4,
-        "categoria": "Engenharia de Software",
+        "categoria": "4- Engenharia de Software",
         "pergunta": "Qual metodologia de desenvolvimento de software é conhecida por sua abordagem iterativa e incremental?",
         "opcoes": [
             { "letra": "A", "texto": "Cascata", "correto": false },
@@ -62,7 +62,7 @@ let perguntas = [
     },
     {
         "id": 5,
-        "categoria": "Inteligência Artificial",
+        "categoria": "5- Inteligência Artificial",
         "pergunta": "Qual dos seguintes é um exemplo de aprendizado supervisionado?",
         "opcoes": [
             { "letra": "A", "texto": "Aprender a jogar xadrez sozinho", "correto": false },
@@ -74,19 +74,19 @@ let perguntas = [
     },
     {
         "id": 6,
-        "categoria": "Inteligência Artificial",
+        "categoria": "6- Inteligência Artificial",
         "pergunta": "O que é um \"algoritmo de aprendizado\"?",
         "opcoes": [
             { "letra": "A", "texto": "Um conjunto de dados", "correto": false },
-            { "letra": "B", "texto": "Um procedimento para resolver um problema", "correto": true },
-            { "letra": "C", "texto": "Uma aplicação de software", "correto": false },
+            { "letra": "B", "texto": "Uma aplicação de software", "correto": false },
+            { "letra": "C", "texto": "Um procedimento para resolver um problema", "correto": true },
             { "letra": "D", "texto": "Uma máquina que processa dados", "correto": false }
         ],
         "explicacao": "Um algoritmo de aprendizado é um conjunto de instruções que permite que um modelo aprenda a partir de dados para resolver problemas específicos."
     },
     {
         "id": 7,
-        "categoria": "SQL",
+        "categoria": "7- Banco de Dados",
         "pergunta": "Qual comando SQL é usado para modificar os dados de uma tabela existente?",
         "opcoes": [
             { "letra": "A", "texto": "UPDATE", "correto": true },
@@ -98,7 +98,7 @@ let perguntas = [
     },
     {
         "id": 8,
-    "categoria": "SQL",
+    "categoria": "8- Banco de Dados",
     "pergunta": "Qual comando SQL é usado para criar uma nova tabela em um banco de dados?",
     "opcoes": [
         { "letra": "A", "texto": "INSERT", "correto": false },
@@ -110,7 +110,7 @@ let perguntas = [
     },
     {
         "id": 9,
-        "categoria": "Java",
+        "categoria": "9- Java",
         "pergunta": "Qual comando é utilizado para imprimir texto no console em Java?",
         "opcoes": [
             { "letra": "A", "texto": "echo", "correto": false },
@@ -122,7 +122,7 @@ let perguntas = [
     },
     {
         "id": 10,
-        "categoria": "Java",
+        "categoria": "10- Java",
         "pergunta": "Em Java, qual tipo de dado é utilizado para armazenar números inteiros?",
         "opcoes": [
             { "letra": "A", "texto": "int", "correto": true },
@@ -131,6 +131,54 @@ let perguntas = [
             { "letra": "D", "texto": "char", "correto": false }
         ],
         "explicacao": "Em Java, o tipo de dado utilizado para armazenar números inteiros é o tipo 'int'."
+    },
+    {
+        "id": 11,
+        "categoria": "11- JavaScript",
+        "pergunta": "Como você declara uma variável em JavaScript?",
+        "opcoes": [
+            { "letra": "A", "texto": "float", "correto": false },
+            { "letra": "B", "texto": "int", "correto": false },
+            { "letra": "C", "texto": "string", "correto": false },
+            { "letra": "D", "texto": "let", "correto": true }
+        ],
+        "explicacao": "let é a forma moderna de declarar uma variável em JavaScript. Ela permite que a variável seja limitada ao escopo de bloco."
+    },
+    {
+        "id": 12,
+        "categoria": "12- JavaScript",
+        "pergunta": "Qual função é usada para exibir uma mensagem na caixa de alerta no navegador?",
+        "opcoes": [
+            { "letra": "A", "texto": "display()", "correto": false },
+            { "letra": "B", "texto": "alert()", "correto": true },
+            { "letra": "C", "texto": "msg()", "correto": false },
+            { "letra": "D", "texto": "show()", "correto": false }
+        ],
+        "explicacao": "A função alert() exibe uma mensagem em uma janela de alerta no navegador, interrompendo a interação até que o usuário a feche."
+    },
+    {
+        "id": 13,
+        "categoria": "13- HTML/CSS",
+        "pergunta": "Qual é a unidade de medida mais comum utilizada em CSS para fontes?",
+        "opcoes": [
+            { "letra": "A", "texto": "cm", "correto": false },
+            { "letra": "B", "texto": "km", "correto": false },
+            { "letra": "C", "texto": "px", "correto": true },
+            { "letra": "D", "texto": "m", "correto": false }
+        ],
+        "explicacao": "px (pixels) é a unidade de medida mais comum para definir o tamanho de fontes e outros elementos de design na web. É amplamente usada por sua precisão em telas digitais."
+    },
+    {
+        "id": 14,
+        "categoria": "14- HTML/CSS",
+        "pergunta": "Qual é o atributo correto para definir um endereço de destino de um link em HTML?",
+        "opcoes": [
+            { "letra": "A", "texto": "src", "correto": false },
+            { "letra": "B", "texto": "link", "correto": false },
+            { "letra": "C", "texto": "target", "correto": false },
+            { "letra": "D", "texto": "href", "correto": true }
+        ],
+        "explicacao": "O atributo href é usado em uma tag <a> para definir o endereço de destino de um link em HTML. Ele especifica para onde o link deve levar o usuário."
     }
 ];
 
@@ -213,13 +261,6 @@ btnRefazer.onclick = function () {
     modalErro.style.display = 'none'; // Fecha o modal de erro
     // Aqui você pode implementar a lógica para refazer a pergunta atual, se desejar
 };
-
-// Verificar se o clique foi fora do modal para fechá-lo
-window.onclick = function (event) {
-    if (event.target == modalCorreta) {
-        modalCorreta.style.display = 'none'; // Fecha o modal se clicar fora
-    }
-}
 
 // Inicializar o jogo com a primeira pergunta
 carregarPergunta();
