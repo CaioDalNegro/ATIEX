@@ -18,8 +18,8 @@ let perguntas = [
         "pergunta": "Qual dispositivo é frequentemente usado para controlar processos automatizados?",
         "opcoes": [
             { "letra": "A", "texto": "Monitor", "correto": false },
-            { "letra": "B", "texto": "CLP", "correto": true },
-            { "letra": "C", "texto": "Impressora", "correto": false },
+            { "letra": "B", "texto": "Impressora", "correto": false },
+            { "letra": "C", "texto": "CLP", "correto": true },
             { "letra": "D", "texto": "Scanner", "correto": false }
         ],
         "explicacao": "O CLP (Controlador Lógico Programável) é um dispositivo projetado especificamente para controlar processos industriais e automatizados."
@@ -29,8 +29,8 @@ let perguntas = [
         "categoria": "Automação Industrial",
         "pergunta": "O que faz um inversor de frequência em sistemas industriais?",
         "opcoes": [
-            { "letra": "A", "texto": "Controla a temperatura de um processo", "correto": false },
-            { "letra": "B", "texto": "Regula a velocidade de motores elétricos", "correto": true },
+            { "letra": "A", "texto": "Regula a velocidade de motores elétricos", "correto": true },
+            { "letra": "B", "texto": "Controla a temperatura de um processo", "correto": false },
             { "letra": "C", "texto": "Converte sinais analógicos em digitais", "correto": false },
             { "letra": "D", "texto": "Detecta a presença de objetos", "correto": false }
         ],
@@ -38,30 +38,6 @@ let perguntas = [
     },
     {
         "id": 3,
-        "categoria": "Automação Industrial",
-        "pergunta": "Qual é a função de um atuador em um sistema de automação?",
-        "opcoes": [
-            { "letra": "A", "texto": "Medir variáveis físicas", "correto": false },
-            { "letra": "B", "texto": "Converter energia elétrica em movimento mecânico", "correto": true },
-            { "letra": "C", "texto": "Monitorar sinais de entrada", "correto": false },
-            { "letra": "D", "texto": "Transmitir dados para um controlador", "correto": false }
-        ],
-        "explicacao": "Os atuadores são responsáveis por converter a energia elétrica em movimento mecânico, sendo essenciais em sistemas de automação."
-    },
-    {
-        "id": 4,
-        "categoria": "Automação Industrial",
-        "pergunta": "Em um sistema de controle industrial, qual é a principal função de um transmissor?",
-        "opcoes": [
-            { "letra": "A", "texto": "Ajustar a velocidade de rotação dos motores", "correto": false },
-            { "letra": "B", "texto": "Converter sinais de um sensor em valores mensuráveis", "correto": true },
-            { "letra": "C", "texto": "Controlar o movimento de braços robóticos", "correto": false },
-            { "letra": "D", "texto": "Detectar objetos à distância", "correto": false }
-        ],
-        "explicacao": "Transmissores têm a função de converter sinais analógicos de sensores em valores mensuráveis, sendo fundamentais em sistemas de controle."
-    },
-    {
-        "id": 5,
         "categoria": "Engenharia de Software",
         "pergunta": "Qual é a primeira fase do ciclo de vida de desenvolvimento de software?",
         "opcoes": [
@@ -73,7 +49,7 @@ let perguntas = [
         "explicacao": "A Análise de requisitos é a primeira fase, onde as necessidades do cliente são levantadas e documentadas."
     },
     {
-        "id": 6,
+        "id": 4,
         "categoria": "Engenharia de Software",
         "pergunta": "Qual metodologia de desenvolvimento de software é conhecida por sua abordagem iterativa e incremental?",
         "opcoes": [
@@ -85,31 +61,7 @@ let perguntas = [
         "explicacao": "Scrum é uma metodologia ágil que promove o desenvolvimento iterativo e incremental, permitindo maior flexibilidade."
     },
     {
-        "id": 7,
-        "categoria": "Engenharia de Software",
-        "pergunta": "No Scrum, quem é responsável por garantir que o time siga os princípios ágeis?",
-        "opcoes": [
-            { "letra": "A", "texto": "Gerente de projeto", "correto": false },
-            { "letra": "B", "texto": "Desenvolvedor", "correto": false },
-            { "letra": "C", "texto": "Scrum Master", "correto": true },
-            { "letra": "D", "texto": "Stakeholder", "correto": false }
-        ],
-        "explicacao": "O Scrum Master é responsável por garantir que a equipe siga os princípios ágeis e facilite o processo Scrum."
-    },
-    {
-        "id": 8,
-        "categoria": "Engenharia de Software",
-        "pergunta": "Qual é a principal vantagem de usar um modelo ágil de desenvolvimento de software?",
-        "opcoes": [
-            { "letra": "A", "texto": "Detalhamento extensivo de requisitos", "correto": false },
-            { "letra": "B", "texto": "Flexibilidade e adaptabilidade às mudanças", "correto": true },
-            { "letra": "C", "texto": "Controle rígido de cada fase do desenvolvimento", "correto": false },
-            { "letra": "D", "texto": "Forte dependência de documentação formal", "correto": false }
-        ],
-        "explicacao": "A flexibilidade e adaptabilidade às mudanças é uma das principais vantagens dos modelos ágeis de desenvolvimento."
-    },
-    {
-        "id": 9,
+        "id": 5,
         "categoria": "Inteligência Artificial",
         "pergunta": "Qual dos seguintes é um exemplo de aprendizado supervisionado?",
         "opcoes": [
@@ -121,7 +73,7 @@ let perguntas = [
         "explicacao": "O reconhecimento facial com base em imagens rotuladas é um exemplo clássico de aprendizado supervisionado, onde um modelo é treinado com dados conhecidos."
     },
     {
-        "id": 10,
+        "id": 6,
         "categoria": "Inteligência Artificial",
         "pergunta": "O que é um \"algoritmo de aprendizado\"?",
         "opcoes": [
@@ -131,8 +83,57 @@ let perguntas = [
             { "letra": "D", "texto": "Uma máquina que processa dados", "correto": false }
         ],
         "explicacao": "Um algoritmo de aprendizado é um conjunto de instruções que permite que um modelo aprenda a partir de dados para resolver problemas específicos."
+    },
+    {
+        "id": 7,
+        "categoria": "SQL",
+        "pergunta": "Qual comando SQL é usado para modificar os dados de uma tabela existente?",
+        "opcoes": [
+            { "letra": "A", "texto": "UPDATE", "correto": true },
+            { "letra": "B", "texto": "DELETE", "correto": false },
+            { "letra": "C", "texto": "ALTER", "correto": false },
+            { "letra": "D", "texto": "INSERT", "correto": false }
+        ],
+        "explicacao": "O comando UPDATE é usado para modificar dados já existentes em uma tabela, permitindo alterações em campos específicos de registros previamente inseridos."
+    },
+    {
+        "id": 8,
+    "categoria": "SQL",
+    "pergunta": "Qual comando SQL é usado para criar uma nova tabela em um banco de dados?",
+    "opcoes": [
+        { "letra": "A", "texto": "INSERT", "correto": false },
+        { "letra": "B", "texto": "CREATE", "correto": true },
+        { "letra": "C", "texto": "ALTER", "correto": false },
+        { "letra": "D", "texto": "UPDATE", "correto": false }
+    ],
+    "explicacao": "O comando CREATE é usado para criar uma nova tabela em um banco de dados. Ele permite definir a estrutura da tabela, como os nomes das colunas e seus tipos de dados."
+    },
+    {
+        "id": 9,
+        "categoria": "Java",
+        "pergunta": "Qual comando é utilizado para imprimir texto no console em Java?",
+        "opcoes": [
+            { "letra": "A", "texto": "echo", "correto": false },
+            { "letra": "B", "texto": "print", "correto": false },
+            { "letra": "C", "texto": "System.out.print", "correto": true },
+            { "letra": "D", "texto": "console.log", "correto": false }
+        ],
+        "explicacao": "Em Java, o comando correto para imprimir texto no console é System.out.print ou System.out.println."
+    },
+    {
+        "id": 10,
+        "categoria": "Java",
+        "pergunta": "Em Java, qual tipo de dado é utilizado para armazenar números inteiros?",
+        "opcoes": [
+            { "letra": "A", "texto": "int", "correto": true },
+            { "letra": "B", "texto": "float", "correto": false },
+            { "letra": "C", "texto": "String", "correto": false },
+            { "letra": "D", "texto": "char", "correto": false }
+        ],
+        "explicacao": "Em Java, o tipo de dado utilizado para armazenar números inteiros é o tipo 'int'."
     }
 ];
+
 
 // Atualize a função carregarPergunta para chamar concluirCategoria
 function carregarPergunta() {
