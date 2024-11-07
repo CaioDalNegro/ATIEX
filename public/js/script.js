@@ -134,17 +134,6 @@ let perguntas = [
     }
 ];
 
-// Função para concluir a categoria
-function concluirCategoria() {
-    const categoriaAtual = perguntas[perguntaAtual]?.categoria;
-    const proximaCategoria = perguntas[perguntaAtual + 1]?.categoria;
-
-    if (categoriaAtual !== proximaCategoria) {
-        // Aqui você pode exibir alguma mensagem ou fazer algo quando a categoria for concluída
-        alert(`Categoria "${categoriaAtual}" concluída!`);
-    }
-}
-
 // Atualize a função carregarPergunta para chamar concluirCategoria
 function carregarPergunta() {
     console.log(`Pontuação atual: ${pontuacao}`); // Exibe a pontuação no console
@@ -162,9 +151,6 @@ function carregarPergunta() {
         button.onclick = () => verificarResposta(opcao);
         opcoesContainer.appendChild(button);
     });
-
-    // Chama a função concluirCategoria
-    concluirCategoria();
 }
 
 // Função para abrir o modal de resposta correta
@@ -199,15 +185,6 @@ function mostrarPontuacaoFinal() {
 
 function proximaPergunta() {
     perguntaAtual++; // Avança para a próxima pergunta
-
-    // Verificar se a categoria foi concluída
-    const categoriaAtual = perguntas[perguntaAtual]?.categoria;
-
-    if (categoriaAtual !== perguntas[perguntaAtual - 1]?.categoria) {
-        // Se a categoria atual for diferente da anterior, significa que a categoria foi concluída
-        mostrarExplicacaoCategoria(categoriaAtual); // Exibe a explicação do tópico
-    }
-
     if (perguntaAtual < perguntas.length) {
         carregarPergunta(); // Carrega a próxima pergunta se houver
     } else {
@@ -402,6 +379,3 @@ btnOkCategoria.onclick = function () {
     modalCategoria.style.display = 'none'; // Fecha o modal
     proximaPergunta(); // Avança para a próxima pergunta ou reinicia
 };
-
-
-
